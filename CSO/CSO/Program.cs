@@ -27,7 +27,7 @@
         public string name;
         public int damage;
 
-        public Weapon(string name, int damage) 
+        public Weapon(string name, int damage)
         {
             this.name = name;
             this.damage = damage;
@@ -35,8 +35,10 @@
 
         public void PrintWeaponStats()
         {
-            Console.WriteLine("Weapon: " + this.name + " -" + this.damage + " DMG");
+            Console.WriteLine("Weapon: " + this.name + " - " + this.damage + " DMG");
         }
+
+    }
 
 
     internal class Program
@@ -48,6 +50,18 @@
             Character heroine = new Character("Agatha");
             heroine.PrintStatsInfo();
 
+            Weapon huntingBow = new Weapon("Hunting Bow", 105);
+            huntingBow.PrintWeaponStats();
+
+            //Testing reference types
+            Character villian = hero;
+
+            hero.PrintStatsInfo();
+            villian.PrintStatsInfo();
+
+            villian.name = "Evil evil man";
+            hero.PrintStatsInfo();
+            villian.PrintStatsInfo();
         }
     }
 }
