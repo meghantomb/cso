@@ -7,6 +7,7 @@
 
         public Character()
         {
+            Reset();
             name = "Not assigned";
         }
 
@@ -15,10 +16,29 @@
             this.name = name;
         }
 
-        public void PrintStatsInfo()
+        public virtual void PrintStatsInfo()
         {
             Console.WriteLine("Hero: " + this.name + " - " + this.exp + " EXP");
+        }
 
+        private void Reset()
+        {
+            this.name = "Not assigned";
+            this.exp = 0;
+        }
+    }
+
+    public class Paladin: Character
+    {
+        public Weapon weapon;
+        public Paladin(string name, Weapon weapon) : base(name)
+        {
+            this.weapon = weapon;
+        }
+
+        public override void PrintStatsInfo()
+        {
+            Console.WriteLine("Hail " + this.name + " - take up your " + this.weapon.name);
         }
     }
 
@@ -71,6 +91,9 @@
             warBow.damage = 155;
             huntingBow.PrintWeaponStats();
             warBow.PrintWeaponStats();
+
+            Paladin knight = new Paladin("Sir Arthur", huntingBow);
+            knight.PrintStatsInfo();
         }
     }
 }
