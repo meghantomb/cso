@@ -14,17 +14,39 @@
         {
             this.name = name;
         }
+
+        public void PrintStatsInfo()
+        {
+            Console.WriteLine("Hero: " + this.name + " - " + this.exp + " EXP");
+
+        }
     }
+
+    public struct Weapon
+    {
+        public string name;
+        public int damage;
+
+        public Weapon(string name, int damage) 
+        {
+            this.name = name;
+            this.damage = damage;
+        }
+
+        public void PrintWeaponStats()
+        {
+            Console.WriteLine("Weapon: " + this.name + " -" + this.damage + " DMG");
+        }
+
 
     internal class Program
     {
         static void Main(string[] args)
         {
             Character hero = new Character();
-            Console.WriteLine("Hero: " + hero.name + " - " + hero.exp + " EXP");
-
+            hero.PrintStatsInfo();
             Character heroine = new Character("Agatha");
-            Console.WriteLine("Hero: " + heroine.name + " - " + heroine.exp + " EXP");
+            heroine.PrintStatsInfo();
 
         }
     }
